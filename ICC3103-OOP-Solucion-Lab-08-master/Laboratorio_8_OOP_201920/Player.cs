@@ -93,8 +93,10 @@ namespace Laboratorio_8_OOP_201920
             }
         }
 
+        // Evento que se pide en el enunciado
         public event EventHandler<PlayerEventArgs> CardPlayed;
 
+        // Publicacion del evento
         public virtual void OnCardPlayed(Card card)
         {
             if (CardPlayed != null)
@@ -105,13 +107,28 @@ namespace Laboratorio_8_OOP_201920
             }
         }
 
+        // Metodo que recorre todos los efectos y engatilla el evento en caso de que el jugador contenga 
+        // una carta con algun efecto
+        private void SearchForEffects()
+        {
+            foreach (Card card in Deck.Cards)
+            {
+                EnumEffect e = card.CardEffect;
+                if (Enum.IsDefined(typeof(EnumEffect), e))
+                {
+                    OnCardPlayed(card);
+                }
+            }
+        }
+
         //Metodos
         public void DrawCard(int cardId = 0)
         {
             Card tempCard = CreateTempCard(cardId);
             hand.AddCard(tempCard);
             deck.DestroyCard(cardId);
-            OnCardPlayed(tempCard);
+            // Llamamos al metodo que escribi
+            SearchForEffects();
         }
 
         public void PlayCard(int cardId, EnumType buffRow = EnumType.None)
@@ -122,23 +139,26 @@ namespace Laboratorio_8_OOP_201920
             if (tempCard is CombatCard)
             {
                 board.AddCard(tempCard, this.Id);
-                OnCardPlayed(tempCard);
+                // Llamamos el metodo que recorre los EnumEffects y engatilla el evento si el jugador tiene una carta con efecto
+                SearchForEffects();
             }
             else
             {
                 if (tempCard.Type == EnumType.buff)
                 {
                     board.AddCard(tempCard, this.Id, buffRow);
-                    OnCardPlayed(tempCard);
                 }
                 else
                 {
                     board.AddCard(tempCard);
-                    OnCardPlayed(tempCard);
                 }
+                // Llamamos el metodo que recorre los EnumEffects y engatilla el evento si el jugador tiene una carta con efecto
+                SearchForEffects();
             }
             hand.DestroyCard(cardId);
         }
+
+        
 
         public void ChangeCard(int cardId)
         {
@@ -150,7 +170,8 @@ namespace Laboratorio_8_OOP_201920
             hand.AddCard(tempDeckCard);
             deck.DestroyCard(deckCardId);
             deck.AddCard(tempCard);
-            OnCardPlayed(tempDeckCard);
+            // Llamamos al metodo que escribi
+            SearchForEffects();
         }
 
         public void FirstHand()
