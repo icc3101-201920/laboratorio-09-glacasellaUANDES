@@ -57,6 +57,8 @@ namespace Laboratorio_8_OOP_201920
 
             }
         }
+
+
         //Propiedades
         public Player[] Players
         {
@@ -143,6 +145,23 @@ namespace Laboratorio_8_OOP_201920
                 return winner;
             }
         }
+
+
+        //=============== CODIGO AGREGADO / MODIFICADO POR MI ==============================================
+
+
+
+        // Evento que se llama para suscribir GameCardEventHandler al evento de player
+        private void SubscribeToEvent(Player pl) => pl.CardPlayed += this.GameCardEventHandler;
+        // Evento que se llama para dar de baja la suscripcion de GameCardEventHandler al evento de player
+        private void UnsubscribeToEvent(Player pl) => pl.CardPlayed -= this.GameCardEventHandler;
+
+        private void GameCardEventHandler(object source, PlayerEventArgs e)
+        {
+
+        }
+
+
         public void Play()
         {
             int userInput = 0;
@@ -154,6 +173,8 @@ namespace Laboratorio_8_OOP_201920
             {
                 bool drawCard = false;
                 //turno 0 o configuracion
+
+                // NO HACE FALTA SUSCRIBIR NADA EN EL TURNO DE CONFIGURACION
                 if (turn == 0)
                 {
                     for (int _ = 0; _<Players.Length; _++)
@@ -220,6 +241,11 @@ namespace Laboratorio_8_OOP_201920
                 else
                 {
                     Boolean cycle = true;
+
+                    // Suscribimos a los eventos de ambos jugadores
+                    SubscribeToEvent(Players[0]);
+                    SubscribeToEvent(Players[1]);
+
                     while (cycle)
                     {
                         ActivePlayer = Players[firstOrSecondUser];
@@ -322,6 +348,11 @@ namespace Laboratorio_8_OOP_201920
                         BoardGame.DestroyCards();
                     }
                 }
+
+                // Eliminamos la suscripcion al evento
+                UnsubscribeToEvent(Players[0]);
+                UnsubscribeToEvent(Players[1]);
+
                 actualData["decks"] = Decks;
                 actualData["captains"] = Captains;
                 actualData["players"] = Players;
@@ -347,6 +378,11 @@ namespace Laboratorio_8_OOP_201920
             }
 
         }
+
+        
+        //====================================================================================
+
+
         public void AddDecks()
         {
             string path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent + @"\Files\Decks.txt";

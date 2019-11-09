@@ -93,6 +93,9 @@ namespace Laboratorio_8_OOP_201920
             }
         }
 
+
+        //=============== CODIGO AGREGADO/MODIFICADO POR MI ==============================================
+
         // Evento que se pide en el enunciado
         public event EventHandler<PlayerEventArgs> CardPlayed;
 
@@ -105,6 +108,15 @@ namespace Laboratorio_8_OOP_201920
                 pl.card = card;
                 CardPlayed(this, pl);
             }
+        }
+
+        public void DrawCard(int cardId = 0)
+        {
+            Card tempCard = CreateTempCard(cardId);
+            hand.AddCard(tempCard);
+            deck.DestroyCard(cardId);
+            // Llamamos al metodo que escribi
+            SearchForEffects();
         }
 
         // Metodo que recorre todos los efectos y engatilla el evento en caso de que el jugador contenga 
@@ -121,19 +133,10 @@ namespace Laboratorio_8_OOP_201920
             }
         }
 
-        //Metodos
-        public void DrawCard(int cardId = 0)
-        {
-            Card tempCard = CreateTempCard(cardId);
-            hand.AddCard(tempCard);
-            deck.DestroyCard(cardId);
-            // Llamamos al metodo que escribi
-            SearchForEffects();
-        }
 
         public void PlayCard(int cardId, EnumType buffRow = EnumType.None)
         {
-            
+
             Card tempCard = CreateTempCard(cardId, false);
 
             if (tempCard is CombatCard)
@@ -158,8 +161,6 @@ namespace Laboratorio_8_OOP_201920
             hand.DestroyCard(cardId);
         }
 
-        
-
         public void ChangeCard(int cardId)
         {
             Card tempCard = CreateTempCard(cardId, false);
@@ -174,6 +175,11 @@ namespace Laboratorio_8_OOP_201920
             SearchForEffects();
         }
 
+        //====================================================================================
+
+
+
+        //Metodos
         public void FirstHand()
         {
             Random random = new Random();
