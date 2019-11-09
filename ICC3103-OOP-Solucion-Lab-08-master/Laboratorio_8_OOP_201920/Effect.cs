@@ -26,6 +26,20 @@ namespace Laboratorio_8_OOP_201920
 
         public static void ApplyEffect(Card playedCard, Player activePlayer, Player opponent, Board board)
         {
+            switch (playedCard.CardEffect)
+            {
+                case EnumEffect.bitingFrost:
+                    break;
+
+                case EnumEffect.impenetrableFog:
+                    break;
+
+                case EnumEffect.torrentialRain:
+                    break;
+
+                case EnumEffect.clearWeather:
+                    break;
+            }
             //Recomendación: Utilice switch(playedCard.CardEffect) para definir los distintos efectos.
         }
     }
