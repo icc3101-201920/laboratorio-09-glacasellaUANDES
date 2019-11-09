@@ -104,9 +104,8 @@ namespace Laboratorio_8_OOP_201920
         {
             if (CardPlayed != null)
             {
-                PlayerEventArgs pl = new PlayerEventArgs();
-                pl.card = card;
-                CardPlayed(this, pl);
+                // Engatillamos el evento, creando el playereventargs
+                CardPlayed(this, new PlayerEventArgs() { Card = card, Player = this});
             }
         }
 

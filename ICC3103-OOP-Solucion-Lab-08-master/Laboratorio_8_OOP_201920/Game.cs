@@ -152,13 +152,15 @@ namespace Laboratorio_8_OOP_201920
 
 
         // Evento que se llama para suscribir GameCardEventHandler al evento de player
-        private void SubscribeToEvent(Player pl) => pl.CardPlayed += this.GameCardEventHandler;
+        private void SubscribeToEvent(Player pl) => pl.CardPlayed += this.OnPlayedCard;
         // Evento que se llama para dar de baja la suscripcion de GameCardEventHandler al evento de player
-        private void UnsubscribeToEvent(Player pl) => pl.CardPlayed -= this.GameCardEventHandler;
+        private void UnsubscribeToEvent(Player pl) => pl.CardPlayed -= this.OnPlayedCard;
 
-        private void GameCardEventHandler(object source, PlayerEventArgs e)
+        // Metodo que se sucribe al evento PlayedCard de player
+        private void OnPlayedCard(object source, PlayerEventArgs e)
         {
-
+            // Aplicamos el efecto, a la carta del player que engatillo el  evento
+            Effect.ApplyEffect(e.Card, e.Player == players[0] ? players[0]:players[1], e.Player == players[0] ? players[1] : players[0], this.boardGame);
         }
 
 
