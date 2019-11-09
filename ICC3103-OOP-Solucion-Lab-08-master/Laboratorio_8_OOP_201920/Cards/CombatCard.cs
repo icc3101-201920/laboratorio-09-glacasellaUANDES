@@ -13,6 +13,7 @@ namespace Laboratorio_8_OOP_201920.Cards
         private int attackPoints;
         private int originalAttackPoints;
         private bool hero;
+        private int previousAttackPoints;
 
         //Constructor
         public CombatCard(string name, EnumType type, EnumEffect effect, int attackPoints, bool hero)
@@ -23,6 +24,7 @@ namespace Laboratorio_8_OOP_201920.Cards
             AttackPoints = attackPoints;
             OriginalAttackPoints = attackPoints;
             Hero = hero;
+            PreviousAttackPoints = -1;
         }
 
         //Propiedades
@@ -49,6 +51,8 @@ namespace Laboratorio_8_OOP_201920.Cards
                 this.hero = value;
             }
         }
+
+        public int PreviousAttackPoints { get => this.previousAttackPoints; set => this.previousAttackPoints = value; }
 
         public override List<string> GetCharacteristics()
         {

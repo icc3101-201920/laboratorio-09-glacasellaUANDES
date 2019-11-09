@@ -247,6 +247,8 @@ namespace Laboratorio_8_OOP_201920
                     // Suscribimos a los eventos de ambos jugadores
                     SubscribeToEvent(Players[0]);
                     SubscribeToEvent(Players[1]);
+                    // Recuperamos los valores de ataque de todas las cartas
+                    Effect.RecuperarValores(Players[0], Players[1]);
 
                     while (cycle)
                     {
