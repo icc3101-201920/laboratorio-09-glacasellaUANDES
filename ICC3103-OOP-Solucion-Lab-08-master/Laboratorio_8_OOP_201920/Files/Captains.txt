@@ -1,0 +1,2 @@
+SpecialCard,Foltest: King of Temeria,captain,impenetrableFog
+SpecialCard,Foltest: Lord Commander of the North,captain,clearWeather

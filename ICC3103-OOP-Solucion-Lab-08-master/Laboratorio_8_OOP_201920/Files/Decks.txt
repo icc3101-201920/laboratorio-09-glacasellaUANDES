@@ -1,0 +1,64 @@
+START
+CombatCard,Dethmold,range,none,6,false
+SpecialCard,Biting Frost,weather,bitingFrost
+SpecialCard,Biting Frost,weather,bitingFrost
+SpecialCard,Clear Weather,weather,clearWeather
+SpecialCard,Clear Weather,weather,clearWeather
+SpecialCard,Impenetrable Fog,weather,impenetrableFog
+SpecialCard,Impenetrable Fog,weather,impenetrableFog
+SpecialCard,Torrential Rain,weather,torrentialRain
+SpecialCard,Torrential Rain,weather,torrentialRain
+CombatCard,Ballista,longRange,none,6,false
+CombatCard,Kaedweni Siege Expert,longRange,moraleBoost,1,false
+CombatCard,Kaedweni Siege Expert,longRange,moraleBoost,1,false
+CombatCard,Keira Metz,range,none,5,false
+CombatCard,Dun Banner Medic,longRange,none,5,false
+CombatCard,Prince Stennis,melee,spy,5,false
+CombatCard,Redanian Foot Soldier,melee,none,1,false
+CombatCard,Sabrina Glevissig,range,none,4,false
+CombatCard,Sheldon Skaggs,range,none,4,false
+CombatCard,Siege Tower,longRange,none,6,false
+CombatCard,Poor Infantry,melee,tightBond,1,false
+CombatCard,Poor Infantry,melee,tightBond,1,false
+CombatCard,Sile de Tansarville,range,none,5,false
+CombatCard,Siegfried of Denesle,melee,none,5,false
+CombatCard,Trebuchet,longRange,none,6,false
+CombatCard,Ves,melee,none,5,false
+CombatCard,Yarpen Zigrin,melee,none,2,false
+CombatCard,Vernon Roche,melee,none,10,true
+SpecialCard,Commander's Horn,buff,buff
+SpecialCard,Commander's Horn,buff,buff
+SpecialCard,Commander's Horn,buff,buff
+END
+START
+CombatCard,Dethmold,range,none,6,false
+SpecialCard,Biting Frost,weather,bitingFrost
+SpecialCard,Biting Frost,weather,bitingFrost
+SpecialCard,Clear Weather,weather,clearWeather
+CombatCard,Thaler,longRange,spy,5,false
+SpecialCard,Impenetrable Fog,weather,impenetrableFog
+SpecialCard,Impenetrable Fog,weather,impenetrableFog
+SpecialCard,Torrential Rain,weather,torrentialRain
+SpecialCard,Torrential Rain,weather,torrentialRain
+CombatCard,Ballista,longRange,none,6,false
+CombatCard,Kaedweni Siege Expert,longRange,moraleBoost,1,false
+CombatCard,Keira Metz,range,none,5,false
+CombatCard,Dun Banner Medic,longRange,none,5,false
+CombatCard,Prince Stennis,melee,spy,5,false
+CombatCard,Redanian Foot Soldier,melee,none,1,false
+CombatCard,Sabrina Glevissig,range,none,4,false
+CombatCard,Sheldon Skaggs,range,none,4,false
+CombatCard,Siege Tower,longRange,none,6,false
+CombatCard,Poor Infantry,melee,tightBond,1,false
+CombatCard,Poor Infantry,melee,tightBond,1,false
+CombatCard,Poor Infantry,melee,tightBond,1,false
+CombatCard,Sile de Tansarville,range,none,5,false
+CombatCard,Siegfried of Denesle,melee,none,5,false
+CombatCard,Trebuchet,longRange,none,6,false
+CombatCard,Ves,melee,none,5,false
+CombatCard,Yarpen Zigrin,melee,none,2,false
+CombatCard,Philippa Eilhart,range,none,10,true
+SpecialCard,Commander's Horn,buff,buff
+SpecialCard,Commander's Horn,buff,buff
+SpecialCard,Commander's Horn,buff,buff
+END
