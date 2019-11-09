@@ -93,13 +93,27 @@ namespace Laboratorio_8_OOP_201920
             }
         }
 
+        public event EventHandler<PlayerEventArgs> CardPlayed;
+
+        public virtual void OnCardPlayed(Card card)
+        {
+            if (CardPlayed != null)
+            {
+                PlayerEventArgs pl = new PlayerEventArgs();
+                pl.card = card;
+                CardPlayed(this, pl);
+            }
+        }
+
         //Metodos
         public void DrawCard(int cardId = 0)
         {
             Card tempCard = CreateTempCard(cardId);
             hand.AddCard(tempCard);
             deck.DestroyCard(cardId);
+            OnCardPlayed(tempCard);
         }
+
         public void PlayCard(int cardId, EnumType buffRow = EnumType.None)
         {
             
@@ -108,16 +122,19 @@ namespace Laboratorio_8_OOP_201920
             if (tempCard is CombatCard)
             {
                 board.AddCard(tempCard, this.Id);
+                OnCardPlayed(tempCard);
             }
             else
             {
                 if (tempCard.Type == EnumType.buff)
                 {
                     board.AddCard(tempCard, this.Id, buffRow);
+                    OnCardPlayed(tempCard);
                 }
                 else
                 {
                     board.AddCard(tempCard);
+                    OnCardPlayed(tempCard);
                 }
             }
             hand.DestroyCard(cardId);
@@ -133,6 +150,7 @@ namespace Laboratorio_8_OOP_201920
             hand.AddCard(tempDeckCard);
             deck.DestroyCard(deckCardId);
             deck.AddCard(tempCard);
+            OnCardPlayed(tempDeckCard);
         }
 
         public void FirstHand()
